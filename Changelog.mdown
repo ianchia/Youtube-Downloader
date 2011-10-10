@@ -1,0 +1,55 @@
+# 1.1 releases
+
+1.1.4
+
+- Videos no longer save as "videoplayback"!
+- Some cleaned up code
+- Adds a way to download Standard MP4 for some videos (Flash player)
+
+1.1.3
+
+- Fixes downloads for videos served with the Flash player
+- Removes support for channel pages
+
+1.1.2
+
+- Fixes HTML5 beta downloads for videos with more than one available format
+
+1.1.1:
+
+- Re-enables basic support for pages using the HTML5 beta (HTML5)
+- Known problem: at this time, HTML5 pages only show one download link (HTML5)
+- Adds "Standard MP4" links for all videos available in "Standard FLV" (Flash player)
+- Adds "Low quality FLV" links, which had been removed in previous versions (Flash player)
+- General code optimizations!
+- Sorting of formats streamlined
+- Testing for channel pages improved
+- Many code comments added
+
+1.1:
+
+- Added basic support for YouTube's channel pages
+- Only the first video is download-able at the moment, but this will be improved
+
+# 1.0 releases
+
+1.0.4:
+
+- Slight reordering of format links
+- Used to test the update mechanism, test successful
+
+1.0.3:
+
+- Fixed UpdateManifest.plist so that updates would be detected by Safari
+
+1.0.2:
+
+- Fixed for use on Vevo music video pages, by making the background of the download link container white, and adding some extra padding
+
+1.0.1:
+
+- Added titles to the download links, so there would be more information on hover
+
+1.0:
+
+- Initial release
