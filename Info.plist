@@ -9,7 +9,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>YouTube Video Downloader</string>
 	<key>CFBundleIdentifier</key>
-	<string>nz.co.leereichardt.safari.youtubeVideoDownloader</string>
+	<string>com.rocketspark.youtubevideodownloader</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -25,6 +25,7 @@
 			<key>End</key>
 			<array>
 				<string>Add download button.js</string>
+				<string>jquery-1.6.4.min.js</string>
 			</array>
 		</dict>
 		<key>Whitelist</key>
@@ -50,5 +51,7 @@
 			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Website</key>
+	<string>http://www.rocketspark.co.nz</string>
 </dict>
 </plist>

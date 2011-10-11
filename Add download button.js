@@ -11,13 +11,6 @@ Array.prototype.contains = function (variable) {
 		return true;
 	}
 }
-// sort based on order of formatDescriptions
-function formatSorterFlash (a, b) {
-	return formatDescriptions[a[0]][0] - formatDescriptions[b[0]][0];
-}
-function formatSorterHTMLFive (a, b) {
-	return formatDescriptions[a[3]][0] - formatDescriptions[b[3]][0];
-}
 // get the HTML source of the video page for later use
 var htmlSource = document.getElementsByTagName("html")[0].innerHTML;
 // determine if page is using HTML5 beta
@@ -63,8 +56,6 @@ if (!htmlFive) {
 	} else {
 		var downloadString = "Download: ";
 	}
-	// sort formats
-/* 	formats.sort(formatSorterFlash); */
 	// add other formats to array
 	for (var i = 0; i < formats.length; i++) {
 		var videoURL = formats[i][1];
@@ -138,7 +129,7 @@ if (!htmlFive) {
 // defines the displayDownloadLinks() function
 
 var downloadFunction = document.createElement("script");
-downloadFunction.type = "application/x-javascript";
+downloadFunction.type = "text/javascript";
 downloadFunction.textContent = "function displayDownloadLinks () { "
 	+ "var divVisibility = document.getElementById('downloadDiv').style.display;"
 	+ "if (divVisibility == 'none') { "
@@ -153,8 +144,10 @@ document.getElementsByTagName("head")[0].appendChild(downloadFunction);
 // create the Download button
 var downloadButton = document.createElement("button");
 downloadButton.type = "button";
-downloadButton.setAttribute("class", "yt-uix-button");
+downloadButton.setAttribute("class", "yt-uix-button yt-uix-tooltip");
 downloadButton.setAttribute("onclick", "displayDownloadLinks()");
+downloadButton.setAttribute("title", "Click to view available file downloads");
+downloadButton.setAttribute("data-tooltip-text", "Click to view available file downloads");
 downloadButton.id = "downloadVideoButton";
 downloadButton.innerHTML = '<span class="yt-uix-button-content">Download Video</span>';
 // adds the links and some instructions to a DIV, adds the DIV to the YouTube page
@@ -173,16 +166,45 @@ if (htmlSource.search("vevo") != -1) {
 }
 downloadDiv.style.display = "none";
 window.onload=function() {
-	downloadButInt=setInterval(function() {
-		if(document.getElementById("watch-headline-user-info")){
-			document.getElementById("watch-headline-user-info").appendChild(downloadButton);
-			clearInterval(downloadButInt);
-		}
-	}, 500);
 	downloadDivInt=setInterval(function() {
-		if(document.getElementById("watch-headline")){
-			document.getElementById("watch-headline").insertBefore(downloadDiv, document.getElementById("watch-headline-user-info"));
+		if(jQuery('.subscription-container').length>0){
+			jQuery(downloadButton).insertAfter('.subscription-container');
 			clearInterval(downloadDivInt);
 		}
 	}, 500);
+	
+	downloadButInt=setInterval(function() {
+		if(jQuery('#watch-headline-user-info').length>0){
+			jQuery(downloadDiv).insertAfter('#watch-headline-user-info');
+			clearInterval(downloadButInt);
+		}
+	}, 500);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
