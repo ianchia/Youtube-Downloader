@@ -6,4 +6,4 @@ Installation and use:
 4. Click the new "Download Video" button
 5. Option-click on any of the available formats
 
-[1]: http://github.com/downloads/jonathanboom/YouTube-video-downloader-for-Safari/YouTube-video-downloader-1.1.4.safariextz
+[1]: http://github.com/downloads/leereichardt/Youtube-Downloader/youtube-downloader.safariextz
