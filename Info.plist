@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>Chrome</key>
 	<dict/>
 	<key>Content</key>
@@ -24,14 +24,10 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>Add download button.js</string>
+				<string>add-button.js</string>
 				<string>jquery-1.6.4.min.js</string>
 			</array>
 		</dict>
-		<key>Stylesheets</key>
-		<array>
-			<string>style.css</string>
-		</array>
 		<key>Whitelist</key>
 		<array>
 			<string>http://*.youtube.com/watch</string>

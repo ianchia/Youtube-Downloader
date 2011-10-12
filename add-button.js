@@ -13,9 +13,7 @@ Array.prototype.contains = function (variable) {
 }
 // get the HTML source of the video page for later use
 var htmlSource = document.getElementsByTagName("html")[0].innerHTML;
-// determine if page is using HTML5 beta
-var htmlFive = false;
-if (htmlSource.search("html5-player") != -1) htmlFive = true;
+
 // set array of format descriptions
 var formatDescriptions = new Array();
 formatDescriptions['5'] = [10, "Low quality FLV", "240p"];
@@ -30,7 +28,6 @@ formatDescriptions['22'] = [2, "HD MP4 (720p)", '720p'];
 formatDescriptions['37'] = [1, "Full HD MP4 (1080p)", '1080p'];
 // get video title, URL-encode it
 var encodedTitle = parent.document.getElementById('eow-title').title;
-if (!htmlFive) {
 	// get the URL map for the formats
 	formatURLMap = htmlSource.split('PLAYER_CONFIG')[1];
 	// replace HTML encodings
@@ -84,47 +81,6 @@ if (!htmlFive) {
 	if (document.URL.search("&fmt=18") != -1) {
 		var extraDownloadsString = 'Higher resolution formats may be available <a href="' + document.URL.substring(0, document.URL.search("&fmt=18")) + document.URL.substring(document.URL.search("&fmt=18") + 7) + '">here</a>.';
 	}
-	
-} else {
-/*
-	// isolate the HTML5 player script and get its source
-	var scripts = document.getElementsByTagName("script");
-	var scriptSource = scripts[scripts.length - 4].innerHTML;
-	// find where format function is, split into parts
-	var formats = scriptSource.split('videoPlayer.setAvailableFormat("');
-	// remove first piece, doesn't relate to formats
-	formats.splice(0, 1);
-	if (formats.length > 1) {
-		var downloadString = "Downloads: ";
-	} else {
-		var downloadString = "Download: ";
-	}
-	// clean up formats
-	for (var i = 0; i < formats.length; i++) {
-		formats[i] = formats[i].split('");')[0];
-		formats[i] = formats[i].split('", "');
-	}
-	// sort them
-	formats.sort(formatSorterHTMLFive);
-	// add them to the download string
-	for (var i = 0; i < formats.length; i++) {
-		var videoURL = formats[i][0] + "&title=" + encodedTitle;
-		if (formats[i][3] in formatDescriptions) {
-			var formatDescription = formatDescriptions[formats[i][3]][1];
-		} else {
-			var formatDescription = "Unknown format";
-		}
-		// add specific format specification, if available/needed
-		if (formatDescriptions[formats[i][3]][2]) {
-			var hoverTitle = "Download as " + formatDescription + " (" + formatDescriptions[formats[i][3]][2] + ") by Option-clicking";
-		} else {
-			var hoverTitle = "Download as " + formatDescription + " by Option-clicking";
-		}
-		downloadString += '<a href="' + videoURL + '" title="' + hoverTitle + '">' + formatDescription + '</a>, ';
-	}
-	downloadString = downloadString.substring(0, downloadString.length-2);
-*/	
-}
 
 // defines the displayDownloadLinks() function
 
@@ -179,7 +135,6 @@ window.onload=function() {
 	
 	downloadButInt=setInterval(function() {
 		if(jQuery('#watch-headline-user-info').length>0){
-/* 			jQuery(downloadDiv).insertAfter('#watch-headline-user-info'); */
 			jQuery(downloadDiv).insertAfter('#downloadVideoButton');
 			clearInterval(downloadButInt);
 		}
