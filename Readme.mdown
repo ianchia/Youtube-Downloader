@@ -6,4 +6,4 @@ Installation and use:
 4. Click the new "Download Video" button
 5. Option-click on any of the available formats
 
-[1]: http://github.com/downloads/leereichardt/Youtube-Downloader/youtube-downloader-1.0.safariextz
+[1]: http://github.com/downloads/leereichardt/Youtube-Downloader/youtube-downloader-1.0.2.safariextz
