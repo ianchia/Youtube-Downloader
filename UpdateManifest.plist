@@ -6,15 +6,15 @@
 	<array>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>nz.co.leereichardt.safari.youtubeVideoDownloader</string>
+			<string>com.rocketspark.youtubevideodownloader</string>
 			<key>Developer Identifier</key>
 			<string>97UAAYQ32G</string>
 			<key>CFBundleVersion</key>
-			<string>1.0.0</string>
+			<string>1.0.2</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.0.1</string>
+			<string>1.0.2</string>
 			<key>URL</key>
-			<string>http://github.com/downloads/leereichardt/Youtube-Downloader/youtube-downloader-1.0.1.safariextz</string>
+			<string>http://github.com/downloads/leereichardt/Youtube-Downloader/youtube-downloader-1.0.2.safariextz</string>
 		</dict>
 	</array>
 </dict>

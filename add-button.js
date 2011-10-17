@@ -4,7 +4,7 @@ Array.prototype.indexOf = function (variable) {
 	}
 	return -1;
 }
-Array.prototype.contains = function (variable) {
+String.prototype.contains = function (variable) {
 	if (this.indexOf(variable) == -1) {
 		return false;
 	} else {
@@ -40,7 +40,7 @@ var encodedTitle = parent.document.getElementById('eow-title').title;
 	var formats = new Array();
 	for(var i = 0; i < formatURLMap.length-1; i++) {
 		//check to see if format contains the url tag
-		if(formatURLMap[i].indexOf("url=")) {
+		if(formatURLMap[i].contains("url=")) {
 			url=formatURLMap[i].split("url=")[1].split('\\')[0];
 			quality=url.split("itag=")[1].split('&ip')[0];
 			formats.push([quality, url + "&title=" + encodedTitle]);		
