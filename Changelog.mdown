@@ -1,3 +1,6 @@
+1.0.3
+- Fixed bug that new youtube layout caused
+
 1.0.2
 
 - Fixed bug that caused the extension not work

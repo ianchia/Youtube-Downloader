@@ -1,8 +1,12 @@
-Array.prototype.indexOf = function (variable) {
+Array.prototype.arrayIndex = function (variable) {
 	for (i = 0; i < this.length; i++) {
 		if (this[i] == variable) return i;
 	}
 	return -1;
+}
+
+function include(arr,obj) {
+    return (arr.indexOf(obj) != -1);
 }
 String.prototype.contains = function (variable) {
 	if (this.indexOf(variable) == -1) {
@@ -26,6 +30,8 @@ formatDescriptions['44'] = [4, "Large WebM", "480p"];
 formatDescriptions['45'] = [3, "HD WebM (720p)", '720p'];
 formatDescriptions['22'] = [2, "HD MP4 (720p)", '720p'];
 formatDescriptions['37'] = [1, "Full HD MP4 (1080p)", '1080p'];
+var not_allowed=new Array('46');
+
 // get video title, URL-encode it
 var encodedTitle = parent.document.getElementById('eow-title').title;
 	// get the URL map for the formats
@@ -63,14 +69,16 @@ var encodedTitle = parent.document.getElementById('eow-title').title;
 		}
 		// add specific format specification, if available/needed
 
-		formatString=formats[i][0].toString();
-		if (formatDescriptions[formats[i][0]][2]) {
-			var hoverTitle = "Download as " + formatDescription + " (" + formatDescriptions[formats[i][0]][2] + ")";
-		} else {
-			var hoverTitle = "Download as " + formatDescription;
+
+		if(!include(not_allowed, formats[i][0])) {
+			if (formatDescriptions[formats[i][0]][2]) {
+				var hoverTitle = "Download as " + formatDescription + " (" + formatDescriptions[formats[i][0]][2] + ")";
+			} else {
+				var hoverTitle = "Download as " + formatDescription;
+			}
+			// add link to downloadsString
+			downloadString += '<a href="' + videoURL + '" title="' + hoverTitle + '">' + formatDescription + '</a>, ';
 		}
-		// add link to downloadsString
-		downloadString += '<a href="' + videoURL + '" title="' + hoverTitle + '">' + formatDescription + '</a>, ';
 	}
 	downloadString = downloadString.substring(0, downloadString.length-2);
 	// see if Standard MP4 should exist, if so, add link to page
@@ -127,8 +135,8 @@ if (htmlSource.search("vevo") != -1) {
 downloadDiv.style.display = "none";
 window.onload=function() {
 	downloadDivInt=setInterval(function() {
-		if(jQuery('.subscription-container').length>0){
-			jQuery(downloadButton).insertAfter('.subscription-container');
+		if(jQuery('#watch-headline-user-info').length>0){
+			jQuery('#watch-headline-user-info').append(downloadButton);
 			clearInterval(downloadDivInt);
 		}
 	}, 500);
