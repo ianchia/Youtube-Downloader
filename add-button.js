@@ -35,19 +35,19 @@ var not_allowed=new Array('46');
 // get video title, URL-encode it
 var encodedTitle = parent.document.getElementById('eow-title').title;
 	// get the URL map for the formats
-	formatURLMap = htmlSource.split('PLAYER_CONFIG')[1];
+	formatURLMap = htmlSource.split('playerConfig')[1];
 	// replace HTML encodings
 	formatURLMap = unescape(formatURLMap);
 	formatURLMap = formatURLMap.replace(/%2C/g, ",");
 	formatURLMap = formatURLMap.replace(/%3A/g, ":");
 	formatURLMap = formatURLMap.split("quality=");
 
-
 	var formats = new Array();
 	for(var i = 0; i < formatURLMap.length-1; i++) {
 		//check to see if format contains the url tag
 		if(formatURLMap[i].contains("url=")) {
 			url=formatURLMap[i].split("url=")[1].split('\\')[0];
+
 			quality=url.split("itag=")[1].split('&ip')[0];
 			formats.push([quality, url + "&title=" + encodedTitle]);		
 		}
@@ -112,7 +112,7 @@ document.getElementsByTagName("head")[0].appendChild(downloadFunction);
 // create the Download button
 var downloadButton = document.createElement("button");
 downloadButton.type = "button";
-downloadButton.setAttribute("class", "yt-uix-button yt-uix-tooltip");
+downloadButton.setAttribute("class", "start yt-uix-button yt-uix-button-default yt-uix-tooltip");
 downloadButton.setAttribute("onclick", "displayDownloadLinks()");
 downloadButton.setAttribute("title", "Click to view available file downloads");
 downloadButton.setAttribute("data-tooltip-text", "Click to view available file downloads");
